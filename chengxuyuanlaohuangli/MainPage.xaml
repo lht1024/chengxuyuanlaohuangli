@@ -7,50 +7,54 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+    <StackPanel Orientation="Vertical" 
+                HorizontalAlignment="Center">
+       
 
-        <TextBlock Grid.Row="0"
-                   Name="MyCalendar"
+        <TextBlock Name="MyCalendar"
                    HorizontalAlignment="Center"
                    FontSize="25"
                    Margin="0,10,0,10"
                    FontWeight="Bold"/>
-        
-        <StackPanel Grid.Row="1"
-                       HorizontalAlignment="Center">
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
                 <Rectangle Fill="#ffef44" 
                            Name="MyBox1"
-                           Width="100"
-                           Height="170"/>
+                           Stretch="Fill"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                
                 <TextBlock Text="宜"
                            FontSize="40"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-            
+                           VerticalAlignment="Center"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Margin="20,30"/>
+                
                 <Rectangle Fill="#fffdb0" 
                            Name="MyBox2"
-                           Grid.Column="1"
-                           Height="170"
-                           Width="400"/>
+                           Stretch="Fill"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+                           
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1"
+                            Grid.Row="0"
                             HorizontalAlignment="Left"
-                            Margin="15,40,0,0"
-                            Name="stack1">
+                            VerticalAlignment="Center"
+                            Name="stack1"
+                            Margin="10,15">
                     <TextBlock Name="Good1" FontWeight="Bold" FontSize="20"/>
                     <TextBlock Name="good1" Foreground="Gray"/>
                     <TextBlock Name="Good2" FontWeight="Bold" FontSize="20"/>
@@ -58,63 +62,59 @@
                     <TextBlock Name="Good3" FontWeight="Bold" FontSize="20"/>
                     <TextBlock Name="good3" Foreground="Gray"/>
                 </StackPanel>
-                
-            </Grid>
-        </StackPanel>
 
-        <StackPanel Grid.Row="2"
-                       HorizontalAlignment="Center">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
                 <Rectangle Fill="#ff4443" 
                            Name="MyBox3"
-                           Width="100"
-                           Height="170"/>
+                           Stretch="Fill"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+                
                 <TextBlock Text="忌"
                            Foreground="White"
                            FontSize="40"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-            
+                           VerticalAlignment="Center"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Margin="20,30"/>
+                
                 <Rectangle Fill="#fcdfcf" 
                            Name="MyBox4"
                            Grid.Column="1"
-                           Height="170"
-                           Width="400"/>
+                           Grid.Row="1"
+                           Stretch="Fill"
+                           />
+                
                 <StackPanel Orientation="Vertical"
                             Grid.Column="1"
+                            Grid.Row="1"
                             HorizontalAlignment="Left"
-                            Margin="15,40,0,0"
-                            Name="stack2">
+                            VerticalAlignment="center"
+                            Name="stack2"
+                            Margin="10,15">
                     <TextBlock Name="Bad1" FontWeight="Bold" FontSize="20"/>
                     <TextBlock Name="bad1" Foreground="Gray"/>
                     <TextBlock Name="Bad2" FontWeight="Bold" FontSize="20"/>
-                    <TextBlock Name="bad2" Foreground="Gray"/>
+                    <TextBlock Name="bad2" Foreground="Gray" />
                     <TextBlock Name="Bad3" FontWeight="Bold" FontSize="20"/>
                     <TextBlock Name="bad3" Foreground="Gray"/>
                 </StackPanel>
             </Grid>
-        </StackPanel>
 
-        <StackPanel Grid.Row="3" 
-                    Orientation="Horizontal"
+            <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
-                    Margin="30,5,50,5">
+                    Margin="10,5">
             <TextBlock Text="座位朝向："/>
             <TextBlock Name="DeskTo"/>
         </StackPanel>
-        
-        <StackPanel Grid.Row="4" 
-                    Orientation="Horizontal"
+
+        <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
-                    Margin="30,5,50,5">
+                    Margin="10,5">
             <TextBlock Text="今日益饮："/>
             <TextBlock Name="WhatToDrink"/>
         </StackPanel>
 
-    </Grid>
+    </StackPanel>
 </Page>

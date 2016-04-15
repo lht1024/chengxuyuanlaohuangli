@@ -66,9 +66,9 @@ namespace chengxuyuanlaohuangli
             GetDeskTo(randNum);
             GetWhatToDrink(randNum);
             int i = GetGoodActivityNum(randNum);
-            //int i = 3;
+            //int i = 1;
             int j = GetBadActivityNum(randNum);
-            //int j = 3;
+            //int j = 1;
             for (num = 0; num < i; num++)
             {
                 GoodItem[num] = action.Next(100, 2000) % 29;
@@ -77,9 +77,10 @@ namespace chengxuyuanlaohuangli
             {
                 BadItem[num] = action.Next(300, 2200) % 29;
             }
-            Judge(i, j);
+            
             AddActivity(activityName,activityGood,activityBad,GoodItem,BadItem);
             SpecialDate(today);
+            Judge(i,j);
     }
 
         private void TimeGet()
@@ -116,60 +117,17 @@ namespace chengxuyuanlaohuangli
 
         private int GetGoodActivityNum(int Number)
         {
-            int GoodNum = (Number % 11) % 2 + 1;
+            int GoodNum = (Number % 11) % 3 + 1;
             return GoodNum;
         }
 
         private int GetBadActivityNum(int Number)
         {
-            int BadNum = (Number % 37) % 2 + 1;
+            int BadNum = (Number % 37) % 3 + 1;
             return BadNum;
         }
 
-        private void Judge(int i, int j)
-        {
-            Thickness type1 = new Thickness(15, 50, 0, 0);
-            Thickness type2 = new Thickness(15, 30, 0, 0);
-            Thickness type3 = new Thickness(15, 10, 0, 0);
-
-
-            if (i == 1)
-            {
-                MyBox1.Height = 120;
-                MyBox2.Height = 120;
-                stack1.Margin = type1;
-            }
-            else if (i == 2)
-            {
-                MyBox1.Height = 145;
-                MyBox2.Height = 145;
-                stack1.Margin = type2;
-            }
-            else
-            {
-                MyBox1.Height = 175;
-                MyBox2.Height = 175;
-                stack1.Margin = type3;
-            }
-            if (j == 1)
-            {
-                MyBox3.Height = 120;
-                MyBox4.Height = 120;
-                stack2.Margin = type1;
-            }
-            else if (j == 2)
-            {
-                MyBox3.Height = 145;
-                MyBox4.Height = 145;
-                stack2.Margin = type2;
-            }
-            else
-            {
-                MyBox3.Height = 175;
-                MyBox4.Height = 175;
-                stack2.Margin = type3;
-            }
-        }
+        
 
         private void AddActivity(string[]name,string[]good,string[]bad,int[]gooditem,int[]baditem)
         {
@@ -196,6 +154,35 @@ namespace chengxuyuanlaohuangli
                 Bad1.Text = "异端审判";
                 bad1.Text = "'待在男（女）友身边";
 
+            }
+        }
+
+        private void Judge(int i, int j)
+        {
+            //Windows.UI.Xaml.Visibility a = new Visibility();
+            if (i == 1)
+            {
+                Good2.Visibility = Visibility.Collapsed;
+                good2.Visibility = Visibility.Collapsed;
+                Good3.Visibility = Visibility.Collapsed;
+                good3.Visibility = Visibility.Collapsed;
+            }
+            if (i == 2)
+            {
+                Good3.Visibility = Visibility.Collapsed;
+                good3.Visibility = Visibility.Collapsed;
+            }
+            if (j == 1)
+            {
+                Bad2.Visibility = Visibility.Collapsed;
+                bad2.Visibility = Visibility.Collapsed;
+                Bad3.Visibility = Visibility.Collapsed;
+                bad3.Visibility = Visibility.Collapsed;
+            }
+            if (j == 2)
+            {
+                Bad3.Visibility = Visibility.Collapsed;
+                bad3.Visibility = Visibility.Collapsed;
             }
         }
     }
